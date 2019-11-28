@@ -1,3 +1,3 @@
-module fdfs_cln
+module github.com/zealotwjr/fdfs_client
 
 go 1.13
