@@ -24,11 +24,11 @@ func newConfig(configName string) (*config, error) {
 		line, err := reader.ReadString('\n')
 		line = strings.TrimSuffix(line, "\n")
 		str := strings.SplitN(line, "=", 2)
-		switch strings.TrimSpace(str[0]){
+		switch strings.TrimSpace(str[0]) {
 		case "tracker_server":
-			config.trackerAddr = append(config.trackerAddr, str[1])
+			config.trackerAddr = append(config.trackerAddr, strings.TrimSpace(str[1]))
 		case "maxConns":
-			config.maxConns, err = strconv.Atoi(str[1])
+			config.maxConns, err = strconv.Atoi(strings.TrimSpace(str[1]))
 			if err != nil {
 				return nil, err
 			}
